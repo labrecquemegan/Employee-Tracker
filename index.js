@@ -1,3 +1,4 @@
-const add = require('./dist/add.js');
 
-add();
+const add = require('./dist/add.js')
+
+add()
