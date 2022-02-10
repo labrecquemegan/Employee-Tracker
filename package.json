@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "test": "jest --verbose test/*",
+    "start": "node index.js",
+    "reset": "node reset.js"
+  },
   "dependencies": {
     "bootstrap": "^5.1.3",
     "express.js": "^1.0.0",

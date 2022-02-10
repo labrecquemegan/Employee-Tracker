@@ -3,6 +3,10 @@ const createTeam = require("./template")
 const Engineer = require("../lib/Engineer")
 const Intern = require("../lib/Intern")
 const Manager = require("../lib/Manager")
+const fs = require("fs")
+const path = require("path")
+
+
 
 
 const employeeList = [];
@@ -64,7 +68,7 @@ function add() {
                         school = answer.school
                         var newIntern = new Intern(firstName, lastName, id, email, role, school)
                         employeeList.push(newIntern)
-                        console.log(employeeList)
+                        // console.log(employeeList)
                         moreEmployee()
                     })
             } else if(answers.role === "Engineer") {
@@ -75,7 +79,7 @@ function add() {
                 }])
                     .then((answer) => {
                         github = answer.github
-                        var newEngineer = new Engineer(firstName, lastName, id, email, github)
+                        var newEngineer = new Engineer(firstName, lastName, id, email, role, github)
                         employeeList.push(newEngineer)
                         console.log(employeeList)
                         moreEmployee()
@@ -88,7 +92,7 @@ function add() {
                 }])
                     .then((answer) => {
                         officeNumber = answer.officeNumber
-                        var newManager = new Manager(firstName, lastName, id, email, officeNumber)
+                        var newManager = new Manager(firstName, lastName, id, email, role, officeNumber)
                         employeeList.push(newManager)
                         moreEmployee()
                     })
@@ -96,24 +100,25 @@ function add() {
             }
         })
 
+        function moreEmployee() {
+            inquirer.prompt([{
+                type: 'confirm',
+                message: 'Would you like to add another employee?',
+                name: 'confirmation'
+            }])
+            .then((answer) => {
+                if (answer.confirmation === true) {
+                    add()
+                } else {
+                    createTeam(employeeList)
+                }
+            })
+        }
+        
      
 }
 
-function moreEmployee() {
-    inquirer.prompt([{
-        type: 'confirm',
-        message: 'Would you like to add another employee?',
-        name: 'confirmation'
-    }])
-    .then((answer) => {
-        if (answer.confirmation === true) {
-            add()
-        } else {
-            createTeam(employeeList)
-        }
-    })
-}
-
-
 
 module.exports = add
+
+
