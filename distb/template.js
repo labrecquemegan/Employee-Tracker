@@ -61,7 +61,7 @@ function makehtml() {
 
 function createIntern(Intern) {
   var internCard = `
-        <div class = "card m-2" style="width: 18rem:">
+        <div class = "card m-2">
             <div class = "card-header">
             <h2>${Intern.firstName}  ${Intern.lastName}</h2>
             <h2>Intern</h2>
@@ -77,7 +77,7 @@ function createIntern(Intern) {
 
 function createEngineer(Engineer) {
   var engineerCard = `
-        <div class = "card m-2" style="width: 18rem:">
+        <div class = "card m-2">
           <div class = "card-header">
           <h2>${Engineer.firstName}  ${Engineer.lastName}</h2>
           <h2>Engineer</h2>
@@ -93,7 +93,7 @@ function createEngineer(Engineer) {
 
 function createManager(Manager) {
   var managerCard = `
-        <div class = "card m-2" style="width: 18rem:">
+        <div class = "card m-2">
           <div class = "card-header">
           <h2>${Manager.firstName}  ${Manager.lastName}</h2>
           <h2>Manager</h2>
